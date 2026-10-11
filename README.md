@@ -1,5 +1,7 @@
 # FrostLine
 
+Live demo: https://frostline-h8z9.onrender.com (free tier, first load may take ~50s; no local LLM there, so the note is templated)
+
 This week's garden jobs, computed from your own town's frost history, with a local open-weight LLM writing the field note.
 Weather history is fetched once (Open-Meteo, no key) and cached in `data/`, so afterwards it works without signal.
 

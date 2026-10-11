@@ -9,7 +9,9 @@ tags: devchallenge, hf26challenge, opensource, python
 FrostLine tells you what to do in the garden **this week**. You type your town. It pulls 15 years of nightly lows, works out your median and 1-in-10 "safe" last spring frost and first fall frost, and lists what to sow, start indoors or transplant now, plus tonight's frost risk. A local LLM turns the plan into a short field note that always ends by sending you outside. It is for anyone with a patch of soil, a balcony or an allotment who is tired of generic "plant in spring" advice.
 
 ## Demo
-<!-- TODO: add a screen recording of the web UI (python -m frostline 8765) -->
+Live: https://frostline-h8z9.onrender.com (free tier: the first load can take ~50s to wake up; the hosted version has no Ollama, so the note uses the template. The local LLM is shown in the recording.)
+
+<!-- TODO: add a screen recording of the local web UI with the LLM (python -m frostline 8765) -->
 
 ## Code
 {% embed https://github.com/pulkitgovrani/frostline %}
