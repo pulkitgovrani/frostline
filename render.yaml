@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: frostline
+    runtime: python
+    plan: free
+    buildCommand: pip install pandas scikit-learn
+    startCommand: python -m frostline
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PYTHON_VERSION
+        value: 3.12.3

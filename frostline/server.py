@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import urllib.parse
 from datetime import date
@@ -36,6 +37,7 @@ class H(BaseHTTPRequestHandler):
 
 
 def main() -> None:
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
-    print(f"FrostLine on http://localhost:{port}")
-    ThreadingHTTPServer(("127.0.0.1", port), H).serve_forever()
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", 8000))
+    host = os.environ.get("HOST", "127.0.0.1")
+    print(f"FrostLine on http://{host}:{port}")
+    ThreadingHTTPServer((host, port), H).serve_forever()
