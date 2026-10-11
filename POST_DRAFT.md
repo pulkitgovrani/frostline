@@ -11,7 +11,7 @@ FrostLine tells you what to do in the garden **this week**. You type your town. 
 ## Demo
 Live: https://frostline-h8z9.onrender.com (free tier: the first load can take ~50s to wake up; the hosted version has no Ollama, so the note uses the template. The local LLM is shown in the recording.)
 
-<!-- TODO: add a screen recording of the local web UI with the LLM (python -m frostline 8765) -->
+{% embed https://youtu.be/cRSjsBCFWN8 %}
 
 ## Code
 {% embed https://github.com/pulkitgovrani/frostline %}
