@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FrostLine</title>
+<style>
+:root{--bg:#f6f4ee;--fg:#1f2a1f;--card:#fff;--mut:#5d6b5d;--acc:#2f6b3a;--warn:#b3541e;--bd:#dcd8cb}
+@media(prefers-color-scheme:dark){:root{--bg:#141a14;--fg:#e8efe6;--card:#1d261d;--mut:#9fb09f;--acc:#7cc489;--warn:#e69a62;--bd:#2f3c2f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}
+main{max-width:680px;margin:0 auto;padding:24px 16px}h1{margin:0 0 4px}p.sub{color:var(--mut);margin:0 0 20px}
+form{display:flex;gap:8px;margin-bottom:20px}input{flex:1;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--fg);font:inherit}
+button{padding:10px 16px;border:0;border-radius:8px;background:var(--acc);color:var(--bg);font:inherit;font-weight:600;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.warn{border-left:4px solid var(--warn)}.mut{color:var(--mut);font-size:14px}.task b{color:var(--acc)}.risky{color:var(--warn)}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:20px 0 8px}
+</style></head><body><main>
+<h1>FrostLine</h1><p class="sub">This week's garden jobs, from your own local frost data.</p>
+<form id="f"><input id="q" placeholder="Your town, e.g. Minneapolis" required><button>Plan my week</button></form>
+<div id="out"></div></main>
+<script>
+const out=document.getElementById('out');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+document.getElementById('f').onsubmit=async e=>{e.preventDefault();
+ out.innerHTML='<p class="mut">Reading the weather history and asking the local model... (first run for a town downloads its data)</p>';
+ const r=await fetch('/api/plan?place='+encodeURIComponent(q.value));const p=await r.json();
+ if(p.error){out.innerHTML='<div class="card warn">'+esc(p.error)+'</div>';return}
+ let h='<div class="card warn"><b>'+esc(p.frost_watch)+'</b>';
+ if(p.tonight_frost_risk)h+='<div class="mut">Tonight\'s frost risk: '+Math.round(p.tonight_frost_risk.probability*100)+'% ('+esc(p.tonight_frost_risk.backend)+')</div>';
+ h+='</div>';
+ if(!p.frost_free_climate)h+='<div class="card mut">Last spring frost ~ '+esc(p.last_spring_frost.median)+' (safe after '+esc(p.last_spring_frost.safe)+') &middot; First fall frost ~ '+esc(p.first_fall_frost.median)+' &middot; from '+p.years_of_data+' years of data for '+esc(p.place)+'</div>';
+ h+='<h2>Field note <span class="mut">('+esc(p.note_source)+')</span></h2><div class="card">'+esc(p.field_note)+'</div><h2>Go outside and...</h2>';
+ h+=p.tasks.length?p.tasks.map(t=>'<div class="card task"><b>'+esc(t.action)+'</b>: '+esc(t.crop)+(t.risky?' <span class="risky">(risky, frost may still come)</span>':'')+'<div class="mut">'+esc(t.window[0])+' to '+esc(t.window[1])+' &middot; '+esc(t.why)+'</div><div>'+esc(t.tip)+'</div></div>').join(''):'<div class="card mut">Nothing urgent. Walk the beds.</div>';
+ out.innerHTML=h};
+</script></body></html>

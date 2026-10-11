@@ -1,0 +1,4 @@
+pandas
+scikit-learn
+pytest
+# optional: tabpfn   (set TABPFN_TOKEN to use it as the frost model)

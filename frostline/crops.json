@@ -1,0 +1,20 @@
+[
+ {"name":"Peas","hardy":"hardy","direct_sow":[-6,-2],"fall_sow":true,"dtm":65,"tip":"Sow 2.5 cm deep, give them a trellis. They love cold soil."},
+ {"name":"Spinach","hardy":"hardy","direct_sow":[-6,0],"fall_sow":true,"dtm":45,"tip":"Bolts in heat, so sow early or in autumn."},
+ {"name":"Radish","hardy":"hardy","direct_sow":[-5,2],"fall_sow":true,"dtm":28,"tip":"Fastest win: ready in about 4 weeks."},
+ {"name":"Lettuce","hardy":"hardy","direct_sow":[-4,3],"fall_sow":true,"dtm":50,"tip":"Sow a short row every 2 weeks for a steady supply."},
+ {"name":"Kale","hardy":"hardy","direct_sow":[-4,4],"fall_sow":true,"dtm":60,"tip":"Gets sweeter after a frost."},
+ {"name":"Carrots","hardy":"hardy","direct_sow":[-3,4],"fall_sow":true,"dtm":75,"tip":"Keep the seedbed damp until they sprout."},
+ {"name":"Beets","hardy":"hardy","direct_sow":[-3,5],"fall_sow":true,"dtm":55,"tip":"Soak seeds overnight to speed germination."},
+ {"name":"Onions (sets)","hardy":"hardy","direct_sow":[-4,1],"fall_sow":false,"dtm":100,"tip":"Push sets in so the tip just shows."},
+ {"name":"Broccoli","hardy":"hardy","indoor":[-10,-6],"transplant":[-3,2],"fall_sow":false,"dtm":70,"tip":"Harden seedlings off for a week before planting out."},
+ {"name":"Potatoes","hardy":"half","direct_sow":[-3,1],"fall_sow":false,"dtm":90,"tip":"Plant seed potatoes 10 cm deep; earth up as they grow."},
+ {"name":"Beans (bush)","hardy":"tender","direct_sow":[1,10],"fall_sow":false,"dtm":55,"tip":"Soil should be 16C+; they rot in cold wet ground."},
+ {"name":"Sweetcorn","hardy":"tender","direct_sow":[1,8],"fall_sow":false,"dtm":80,"tip":"Plant in a block, not a row, for pollination."},
+ {"name":"Cucumber","hardy":"tender","direct_sow":[1,8],"fall_sow":false,"dtm":60,"tip":"Needs warm soil and a sunny spot."},
+ {"name":"Squash / Zucchini","hardy":"tender","direct_sow":[1,8],"fall_sow":false,"dtm":55,"tip":"Give each plant about a metre of room."},
+ {"name":"Tomatoes","hardy":"tender","indoor":[-8,-6],"transplant":[1,4],"fall_sow":false,"dtm":75,"tip":"Bury the stem deep when transplanting; it roots along the stem."},
+ {"name":"Peppers","hardy":"tender","indoor":[-10,-8],"transplant":[2,5],"fall_sow":false,"dtm":80,"tip":"Wait for warm nights before they go out."},
+ {"name":"Basil","hardy":"tender","indoor":[-6,-4],"transplant":[1,4],"fall_sow":false,"dtm":60,"tip":"Any night under 10C and it sulks."},
+ {"name":"Garlic (autumn planting)","hardy":"hardy","fall_only":[-1,3],"dtm":240,"tip":"Plant cloves pointy end up, 5 cm deep, before the ground freezes."}
+]
